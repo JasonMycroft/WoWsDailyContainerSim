@@ -2,7 +2,6 @@
 using SCRework.LootBoxes;
 
 Config config = new Config().Instance;
-int bonusSC = config.AnniversaryContainers + config.MonthlyContainers + config.BirthdayContainers;
 
 // setup loot collection
 var rewards = new Dictionary<string, long>();
@@ -71,13 +70,16 @@ while (trials++ < config.Trials)
     }
 
     // bonus
-    for(int i = 0; i < bonusSC; i++)
+    for (int i = 0; i < config.AnniversaryContainers + config.MonthlyContainers + config.BirthdayContainers; i++)
+    {
+        var drop = OldSuperContainer.Open();
+        oldRewards[drop.lootType] = oldRewards[drop.lootType] + drop.quantity;
+    }
+
+    for (int i = 0; i < config.AnniversaryContainers + config.MonthlyContainers * 2 + config.BirthdayContainers; i++)
     {
         var drop = SuperContainer.Open();
         rewards[drop.lootType] = rewards[drop.lootType] + drop.quantity;
-
-        drop = OldSuperContainer.Open();
-        oldRewards[drop.lootType] = oldRewards[drop.lootType] + drop.quantity;
     }
 }
 

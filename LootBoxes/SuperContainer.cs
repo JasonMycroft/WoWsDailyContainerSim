@@ -45,32 +45,27 @@ namespace SCRework.LootBoxes
                 guaranteedDropCounter = 0;
                 return (LootType.Ship7, 1);
             }
-            else if (x < 2600)
+            else if (x < 3100)
             {
                 guaranteedDropCounter++;
                 return (LootType.Flags, 50);
             }
-            else if (x < 3260)
+            else if (x < 3760)
             {
                 guaranteedDropCounter++;
                 return (LootType.BlueBooster, 15);
             }
-            else if (x < 4860)
+            else if (x < 6560)
             {
                 guaranteedDropCounter++;
                 return (LootType.GreenBooster, 25);
             }
-            else if (x < 6860)
-            {
-                guaranteedDropCounter++;
-                return (LootType.GreyBooster, 50);
-            }
-            else if (x < 7400)
+            else if (x < 7100)
             {
                 guaranteedDropCounter++;
                 return (LootType.PT, 7);
             }
-            else if (x < 7900)
+            else if (x < 7750)
             {
                 guaranteedDropCounter++;
                 return (LootType.Ecxp, 75000);
